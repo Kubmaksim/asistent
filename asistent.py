@@ -20,16 +20,33 @@ tts = _TTS()
 tts.start(x)
 
 class Functional:
-    def app():
+
+    def telegram():
         return os.system('open /Applications/Telegram.app')
 
-
-
+    def google():
+        return os.system('/Applications/Google Chrome.app')
     
-if x == 'Телеграм':
+    def book():
+        return os.system('open /System/Applications/Books.app')
+
+
+
+
+if x.lower() == 'телеграм' or x.lower() == 'открыть телеграм':
     tts.start('Открываю телеграм')
-    Functional.app()
+    Functional.telegram()
+elif x.lower() == 'браузер' or x.lower() == 'открыть браузер':
+    tts.start('Браузер открыт!')
+    Functional.google()
+elif x.lower() == 'книги' or x.lower() == 'открыть книги':
+    tts.start('Приятного чтения')
+    Functional.book()
+elif x.lower() == 'что ты можешь' or x.lower() == 'покажи свои возможности':
+    tts.start('Я умею открывать приложения на твоем компьютере')
+    
 else:
-    print('No undenstend')
+    tts.start('Не понимаю')
+    
 
 
