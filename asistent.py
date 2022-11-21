@@ -5,17 +5,19 @@ import datetime
 
 class _TTS:
     engine = None
-    rate = None
+
+    
     def __init__(self):
         self.engine = pyttsx3.init()
 
     def start(self, text_):
-        
+
         self.engine.setProperty('voice', 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_EN-US_ZIRA_11.0')
         self.engine.say(text_)
         self.engine.runAndWait()
 
-x = input("Enter please:")
+
+x = str(input("Enter please:"))
 tts = _TTS()
 tts.start(x)
 
@@ -33,11 +35,13 @@ class Functional:
         return os.system('/Applications/Google Chrome.app')
     
     def book():#prob
-        with open('file_name.txt', 'r') as f:
-            for i in f.l:
-                x = i
-        return tts.start(x)
-    
+        with open("file_name.txt", "r") as file1:
+            for line in file1:
+                tts.start(line.strip())
+        
+            
+
+        file1.close
     def fyni():
         list = ['Финал  сказки  о    Рыбаке  и  Золотой   рыбке  —  это  возвращение  к  заводским  настройкам.',
                 'Библиотекарша  устроилась   на работу   в   бордель. Теперь  у   каждой   девочки  в  карточке  четко  написано,  кто  ее  брал  и  когда.',
